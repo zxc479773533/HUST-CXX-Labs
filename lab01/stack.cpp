@@ -26,7 +26,7 @@ void initSTACK(STACK *const p, int m) {
 void initSTACK(STACK *const p, const STACK &s) {
 	p->elems = (int*)malloc(sizeof(int) * s.max);
 	if (p != NULL) {
-		memcpy(p->elems, s.elems, s.max);
+		memcpy(p->elems, s.elems, s.max * sizeof(int));
 		p->max = s.max;
 		p->pos = s.pos;
 	}
@@ -67,12 +67,9 @@ STACK *const push(STACK *const p, int e) {
 		return NULL;
 	// Stack full
 	if (p->pos == p->max)
-		return p;
-	// Move to right
-	for (int i = p->pos; i > 0; i--)
-		p->elems[i] = p->elems[i - 1];
-	// New data
-	p->elems[0] = e;
+		return NULL;
+	// Add new data
+	p->elems[p->pos] = e;
 	p->pos++;
 	return p;
 }
@@ -85,12 +82,9 @@ STACK *const pop(STACK *const p, int &e) {
 		return NULL;
 	// Stack empty
 	if (p->pos == 0)
-		return p;
+		return NULL;
 	// New data
 	e = p->elems[0];
-	// Move to left
-	for (int i = 0; i < p->pos - 1; i++)
-		p->elems[i] = p->elems[i + 1];
 	p->pos--;
 	return p;
 }
@@ -100,7 +94,7 @@ STACK *const pop(STACK *const p, int &e) {
  */
 STACK *const assign(STACK *const p, const STACK &s) {
   if (p != NULL) {
-    memcpy(p->elems, s.elems, s.max);
+    memcpy(p->elems, s.elems, s.max * sizeof(int));
     p->max = s.max;
     p->pos = s.pos;
   }

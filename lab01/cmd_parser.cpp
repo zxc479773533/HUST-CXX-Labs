@@ -9,7 +9,6 @@
 #include "cmd_parser.h"
 
 cmd_paresr::cmd_paresr(int argc, char **argv) {
-  printf("Argc=%d\n", argc);
   pos = 0;
   opnum = 0;
   for (int i = 1; i < argc; i++) {

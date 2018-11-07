@@ -54,7 +54,7 @@ int howMany(const STACK *const p) {
  * getelem - Get the elem at pos x in stack p
  */
 int getelem(const STACK *const p, int x) {
-	if (p == NULL || x >= p->pos)
+	if (p == NULL || x < 0 ||  x >= p->pos)
 		return 0;
 	return p->elems[x];
 }
@@ -84,7 +84,7 @@ STACK *const pop(STACK *const p, int &e) {
 	if (p->pos == 0)
 		return NULL;
 	// New data
-	e = p->elems[0];
+	e = p->elems[p->pos];
 	p->pos--;
 	return p;
 }

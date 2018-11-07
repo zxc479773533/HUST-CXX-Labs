@@ -34,7 +34,7 @@ void initSTACK(STACK *const p, int m);
  * initSTACK - Initial the stack using another stack
  * parameters：
  *  p: stack pointer
- *  m: another stack pointer
+ *  m: another stack's reference
  * return: void
  */
 void initSTACK(STACK *const p, const STACK &s);

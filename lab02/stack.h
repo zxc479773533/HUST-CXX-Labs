@@ -20,7 +20,7 @@ class STACK {
 public:
   STACK(int m);                  // Initial the stack with m elem at most
   STACK(const STACK &s);         // Initial the stack using another stack
-  int size() const;              // Get the elem num in stack p
+  int size() const;              // Get the max num in stack p
   int howMany() const;           // Get the elem num in stack p
   int getelem(int x) const;      // Get the elem at pos x in stack p
   STACK &push(int e);            // Push e into stack p

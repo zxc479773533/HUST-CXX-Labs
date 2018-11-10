@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
         int e;
         arg = arg_list.front();
         for (int i = 0; i < arg; i++)
-          mystack->pop(arg);
+          mystack->pop(e);
         arg_list.pop();
         cout << " ";
         mystack->print();

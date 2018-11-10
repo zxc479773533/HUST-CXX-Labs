@@ -80,6 +80,8 @@ int main(int argc, char **argv) {
         cout << " C";
         STACK *new_stack = new STACK(*mystack);
         mystack = new_stack;
+        cout << " ";
+        mystack->print();
         break;
       }
       case 'N': {
@@ -90,6 +92,10 @@ int main(int argc, char **argv) {
       case 'G': {
         cout << " G";
         arg = arg_list.front();
+        if (arg >= mystack->howMany()) {
+          cout << " E" << endl;
+          exit(0);
+        }
         cout << " " << mystack->getelem(arg);
         arg_list.pop();
         break;

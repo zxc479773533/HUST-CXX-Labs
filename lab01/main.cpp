@@ -91,6 +91,10 @@ int main(int argc, char **argv) {
         STACK *new_stack = (STACK*)malloc(sizeof(STACK));
         initSTACK(new_stack, *p);
         p = new_stack;
+        // Out put the elems in stack
+        for (int i = 0; i < p->pos; i++) {
+          cout << " " << p->elems[i];
+        }
         break;
       }
       case 'N': {
@@ -101,6 +105,10 @@ int main(int argc, char **argv) {
       case 'G': {
         cout << " G";
         arg = arg_list.front();
+        if (arg >= p->pos) {
+          cout << " E" << endl;
+          exit(0);
+        }
         cout << " " << p->elems[arg];
         arg_list.pop();
         break;

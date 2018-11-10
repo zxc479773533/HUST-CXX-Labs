@@ -80,16 +80,22 @@ int main(int argc, char **argv) {
         cout << " C";
         STACK *new_stack = new STACK(*mystack);
         mystack = new_stack;
+        cout << " ";
+        mystack->print();  
         break;
       }
       case 'N': {
         cout << " N";
-        cout << " " << int(*mystack);        
+        cout << " " << int(*mystack);
         break;
       }
       case 'G': {
         cout << " G";
         arg = arg_list.front();
+        if (arg >= int(*mystack)) {
+          cout << " E" << endl;
+          exit(0);
+        }
         cout << " " << mystack[arg];
         arg_list.pop();
         break;

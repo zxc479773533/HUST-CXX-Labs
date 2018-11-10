@@ -82,6 +82,8 @@ int main(int argc, char **argv) {
         cout << " C";
         QUEUE *new_stack = new QUEUE(*myqueue);
         myqueue = new_stack;
+        cout << " ";
+        myqueue->print();
         break;
       }
       case 'N': {
@@ -92,6 +94,10 @@ int main(int argc, char **argv) {
       case 'G': {
         cout << " G";
         arg = arg_list.front();
+        if (arg >= int(*myqueue)) {
+          cout << " E" << endl;
+          exit(0);
+        }
         cout << " " << myqueue[arg];
         arg_list.pop();
         break;

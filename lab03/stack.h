@@ -9,9 +9,8 @@
 #ifndef HUST_CXX_LAB03
 #define HUST_CXX_LAB03
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstring>
 
 class STACK {
   int *const elems; // Store the elem

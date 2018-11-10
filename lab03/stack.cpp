@@ -7,13 +7,11 @@
  */
 
 #include "stack.h"
-#include <iostream>
 #include <stdexcept>
 
 /*
  * STACK::STACK - Initial the stack with m elem at most
  * parameters：
- *  p: stack pointer
  *  m: max elem nums
  * 
  * Constructor
@@ -23,7 +21,7 @@ STACK::STACK(int m) : elems(new int [m]), max(m), pos(0) {}
 /*
  * STACK::STACK - Initial the stack using another stack
  * parameters：
- *  m: another stack's reference
+ *  s: another stack's reference
  * 
  * Constructor
  */
@@ -40,7 +38,7 @@ int STACK::size() const {
 }
 
 /*
- * STACK::howMany - Get the elem num in stack p
+ * STACK::operator int - Get the elem num in stack p
  * parameters：
  *  None
  * return: the elem num in p
@@ -50,7 +48,7 @@ STACK::operator int () const {
 }
 
 /*
- * STACK::getelem - Get the elem at pos x in stack p
+ * STACK::operator[] - Get the elem at pos x in stack p
  * parameters：
  *  x: pos
  * return: the elem at pos x
@@ -62,7 +60,7 @@ int STACK::operator[](int x) const {
 }
 
 /*
- * STACK::push - Push e into stack p
+ * STACK::operator << - Push e into stack p
  * parameters：
  *  e: new elem
  * return: the stack'reference
@@ -76,21 +74,21 @@ STACK &STACK::operator << (int e) {
 }
 
 /*
- * STACK::pop - Pop an elem out of stack p
+ * STACK::operator >> - Pop an elem out of stack p
  * parameters：
  *  &e: new elem
  * return: the stack'reference
  */
 STACK &STACK::operator >> (int &e) {
-  if (pos == 0)
+  if (pos == 0 && e != 0)
     throw std::underflow_error("[ERROR] Stack underflowed!");
-	e = elems[pos];
+	e = elems[pos - 1];
 	pos--;
 	return *this;
 }
 
 /*
- * STACK::assign - Assign data from s to p
+ * STACK::operator = - Assign data from s to p
  * parameters：
  *  &s: data
  * return: the stack'reference
@@ -119,7 +117,6 @@ void STACK::print() const {
 /*
  * STACK::~STACK - Destroy the stack
  * parameters：
- *  p: stack pointer
  * 
  * Destructor
  */

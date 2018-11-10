@@ -1,5 +1,5 @@
 /*
- * HUST-CXX-Labs lab02::main
+ * HUST-CXX-Labs lab03::main
  * 
  * Created by zxcpyp
  * 
@@ -49,18 +49,20 @@ int main(int argc, char **argv) {
       }
       case 'O': {
         cout << " O";
+        int e;
+        arg = arg_list.front();
         // Test if the stack can be empty
-        if (int(*mystack) < arg_list.size()) {
+        if (int(*mystack) < arg) {
           cout << " E" << endl;
           exit(0);
         }
-        int e;
-        arg = arg_list.front();
         for (int i = 0; i < arg; i++)
           *mystack >> e;
         arg_list.pop();
-        cout << " ";
-        mystack->print();
+        if (int(*mystack) != 0) {
+          cout << " ";
+          mystack->print();
+        }
         break;
       }
       case 'A': {

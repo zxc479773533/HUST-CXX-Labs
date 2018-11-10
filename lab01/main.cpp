@@ -56,13 +56,13 @@ int main(int argc, char **argv) {
       }
       case 'O': {
         cout << " O";
+        int e;
+        arg = arg_list.front();
         // Test if the stack can be empty
-        if (p->pos < arg_list.size()) {
+        if (p->pos < arg) {
           cout << " E" << endl;
           exit(0);
         }
-        int e;
-        arg = arg_list.front();
         for (int i = 0; i < arg; i++)
           p = pop(p, e);
         arg_list.pop();

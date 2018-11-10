@@ -49,18 +49,20 @@ int main(int argc, char **argv) {
       }
       case 'O': {
         cout << " O";
+        int e;
+        arg = arg_list.front();
         // Test if the stack can be empty
-        if (mystack->howMany() < arg_list.size()) {
+        if (mystack->howMany() < arg) {
           cout << " E" << endl;
           exit(0);
         }
-        int e;
-        arg = arg_list.front();
         for (int i = 0; i < arg; i++)
           mystack->pop(e);
         arg_list.pop();
-        cout << " ";
-        mystack->print();
+        if (mystack->howMany() != 0) {
+          cout << " ";
+          mystack->print();
+        }
         break;
       }
       case 'A': {

@@ -7,13 +7,11 @@
  */
 
 #include "stack.h"
-#include <iostream>
 #include <stdexcept>
 
 /*
  * STACK::STACK - Initial the stack with m elem at most
  * parameters：
- *  p: stack pointer
  *  m: max elem nums
  * 
  * Constructor
@@ -23,7 +21,7 @@ STACK::STACK(int m) : elems(new int [m]), max(m), pos(0) {}
 /*
  * STACK::STACK - Initial the stack using another stack
  * parameters：
- *  m: another stack's reference
+ *  s: another stack's reference
  * 
  * Constructor
  */
@@ -82,9 +80,9 @@ STACK &STACK::push(int e) {
  * return: the stack'reference
  */
 STACK &STACK::pop(int &e) {
-  if (pos == 0)
+  if (pos == 0 && e != 0)
     throw std::underflow_error("[ERROR] Stack underflowed!");
-	e = elems[pos];
+	e = elems[pos - 1];
 	pos--;
 	return *this;
 }
@@ -119,7 +117,6 @@ void STACK::print() const {
 /*
  * STACK::~STACK - Destroy the stack
  * parameters：
- *  p: stack pointer
  * 
  * Destructor
  */

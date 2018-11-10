@@ -81,10 +81,10 @@ STACK *const pop(STACK *const p, int &e) {
 	if (p == NULL)
 		return NULL;
 	// Stack empty
-	if (p->pos == 0)
+	if (p->pos == 0 && e != 0)
 		return NULL;
 	// New data
-	e = p->elems[p->pos];
+	e = p->elems[p->pos - 1];
 	p->pos--;
 	return p;
 }

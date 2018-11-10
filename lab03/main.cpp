@@ -96,7 +96,7 @@ int main(int argc, char **argv) {
           cout << " E" << endl;
           exit(0);
         }
-        cout << " " << mystack[arg];
+        cout << " " << (*mystack)[arg];
         arg_list.pop();
         break;
       }

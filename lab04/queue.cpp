@@ -59,12 +59,13 @@ int QUEUE::full() const {
 int QUEUE::operator[](int x) const {
   if (x < 0 || x >= int(*this))
     throw std::out_of_range("[ERROR] Index out of range!");
+  int output_len = int(s2);
   // If x in the output stack
-	if (x < this->STACK::operator int())
+	if (x < output_len)
     return s2[int(s2) - 1 - x];
   // X in the input stack
   else
-    return this->STACK::operator[](x - int(s2));
+    return this->STACK::operator[](x - output_len);
 }
 
 /*

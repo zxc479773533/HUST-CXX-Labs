@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
           cout << " E" << endl;
           exit(0);
         }
-        cout << " " << myqueue[arg];
+        cout << " " << (*myqueue)[arg];
         arg_list.pop();
         break;
       }
